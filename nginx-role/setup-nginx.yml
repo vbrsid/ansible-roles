@@ -1,0 +1,9 @@
+---
+
+- name: Install nginx through a role
+  hosts: all
+  vars:
+    PORT_NUMBER: 9999
+  roles:
+    - nginx    
+

@@ -1,0 +1,29 @@
+---
+# tasks file for nginx
+
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: create nginx config
+  template:
+    src: site.conf.j2
+    dest: /etc/nginx/sites-available/site.conf
+
+- name: create symlink
+  file:
+    src: /etc/nginx/sites-available/site.conf
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+
+- name: copy index html content
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+
+- name: start nginx service
+  service:
+    name: nginx
+    state: started 
+    enabled: yes
