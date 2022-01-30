@@ -1,0 +1,7 @@
+---
+
+- name: Install jenkins through a role
+  hosts: all
+  roles:
+    - jenkins    
+

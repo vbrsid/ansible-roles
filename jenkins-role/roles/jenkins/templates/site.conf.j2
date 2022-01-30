@@ -1,0 +1,8 @@
+server {
+        listen   {{ PORT_NUMBER }};
+        server_name   {{ ansible_facts['fqdn'] }};
+	location / {
+            root {{ FILE_PATH }};
+            index  index.html;
+        }
+}

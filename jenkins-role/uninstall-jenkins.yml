@@ -1,0 +1,14 @@
+---
+
+- name: Uninstall jenkins 
+  hosts: all
+  tasks:
+    - name: stop jenkins
+      service:
+        name: jenkins
+        state: stopped
+
+    - name: uninstall jenkins
+      apt:
+        name: jenkins
+        state: absent
